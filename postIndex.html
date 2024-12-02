@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Details</title>
+    <link rel="stylesheet" href="/css/postIndex.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>HotView Labs</h1>
+        </div>
+        <nav>
+            <a href="/html/index.html">Home</a>
+            <a href="/html/aboutUs.html">About Us</a>
+            <a href="/html/contact.html">Contact</a>
+            <a href="/html/post/createPost.html" id="create-post-btn" style="display: none;">Create Post</a>
+            <a href="/html/account/login.html" id="auth-btn">Login</a>
+        </nav>
+    </header>
+    <!-- Welcome Section -->
+    <section class="welcome">
+        <div class="banner">
+            <h2>Welcome to the Full Story</h2>
+            <p>Get the complete details and dive deeper into the topic of your interest.</p>
+            
+        </div>
+    </section>
+
+    <!-- Main Section -->
+    <main>
+        <section id="post-details">
+            <div class="post-banner">
+                <img src="https://via.placeholder.com/800x400" alt="Post Banner">
+            </div>
+            <h1 id="post-title">Post Title</h1>
+            <p id="post-content">This is where the post content will appear. It's dynamically loaded based on the selected post.</p>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 HotView Labs. All Rights Reserved.</p>
+    </footer>
+
+    <script type="module" src="/js/postIndex.js">
+
+document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const postId = params.get('id');
+
+            if (postId) {
+                fetchPostById(postId);  // Fetch the post details by post ID
+            } else {
+                document.getElementById('post-details').innerHTML = `
+                    <p>No post ID provided.</p>
+                `;
+            }
+        });
+
+
+        // Load posts dynamically
+        fetchPosts();
+
+        // Handle user login status
+        document.addEventListener('DOMContentLoaded', () => {
+            const createPostBtn = document.getElementById('create-post-btn');
+            const authBtn = document.getElementById('auth-btn');
+            const token = localStorage.getItem('accessToken');
+
+            if (token) {
+                createPostBtn.style.display = 'inline-block';
+                authBtn.textContent = 'Logout';
+                authBtn.href = '#';
+                authBtn.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    localStorage.removeItem('accessToken');
+                    alert('Logged out successfully.');
+                    location.href = '/html/account/login.html';
+                });
+            } else {
+                createPostBtn.style.display = 'none';
+                authBtn.textContent = 'Login';
+                authBtn.href = '/html/account/login.html';
+            }
+        });
+    </script>
+</body>
+</html>

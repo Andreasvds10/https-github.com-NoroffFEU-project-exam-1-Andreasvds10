@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HotView Labs - About Us</title>
+    <link rel="stylesheet" href="/css/aboutUs.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>HotView Labs</h1>
+        </div>
+        <nav>
+            <a href="/html/index.html">Home</a>
+            <a href="/html/aboutUs.html" class="active">About Us</a>
+            <a href="/html/contact.html">Contact</a>
+            <a href="/html/post/createPost.html" id="create-post-btn" style="display: none;">Create Post</a>
+            <a href="/html/account/login.html" id="auth-btn">Login</a>
+        </nav>
+    </header>
+
+    <!-- Welcome Section -->
+    <section class="welcome">
+        <div class="banner">
+            <h2>About Us</h2>
+            <p>Learn more about our vision and mission to empower the tech world.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section class="about">
+            <h2>Who We Are</h2>
+            <p>At HotView Labs, we are a global team of innovators specializing in tech research and development. With a dedicated workforce of 30 talented professionals, we operate on a worldwide scale, delivering cutting-edge insights to empower tech leaders across industries.</p>
+        </section>
+
+        <section class="about-text">
+            <p>Our mission is clear: to provide the most accurate and up-to-date insights that drive informed decision-making and fuel innovation. We are passionate about transforming data into actionable intelligence, helping businesses stay ahead in an ever-evolving tech landscape.</p>
+
+            <p>At HotView Labs, we believe in shaping the future of technology through precision, dedication, and a relentless pursuit of excellence.</p>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 HotView Labs. All Rights Reserved.</p>
+    </footer>
+    <script type="module">
+        import { fetchPosts } from '/js/fetchPosts.js';
+
+        // Load posts dynamically
+        fetchPosts();
+
+        // Handle user login status
+        document.addEventListener('DOMContentLoaded', () => {
+            const createPostBtn = document.getElementById('create-post-btn');
+            const authBtn = document.getElementById('auth-btn');
+            const token = localStorage.getItem('accessToken');
+
+            if (token) {
+                createPostBtn.style.display = 'inline-block';
+                authBtn.textContent = 'Logout';
+                authBtn.href = '#';
+                authBtn.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    localStorage.removeItem('accessToken');
+                    alert('Logged out successfully.');
+                    location.href = '/html/account/login.html';
+                });
+            } else {
+                createPostBtn.style.display = 'none';
+                authBtn.textContent = 'Login';
+                authBtn.href = '/html/account/login.html';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="/css/contact.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>HotView Labs</h1>
+        </div>
+        <nav>
+            <a href="/html/index.html">Home</a>
+            <a href="/html/aboutUs.html">About Us</a>
+            <a href="/html/contact.html" class="active">Contact</a>
+            <a href="/html/post/createPost.html" id="create-post-btn" style="display: none;">Create Post</a>
+            <a href="/html/account/login.html" id="auth-btn">Login</a>
+        </nav>
+    </header>
+
+    <!-- Welcome Section -->
+    <section class="welcome">
+        <div class="banner">
+            <h2>Contact Us</h2>
+            <p>Your trusted partner in innovation. Reach out to us!</p>
+        </div>
+    </section>
+
+    <!-- Contact Information Section -->
+    <section class="contact-info">
+        <h2>Contact Information</h2>
+        <div class="info">
+            <div class="info-item">
+                <h3>Email</h3>
+                <p><a href="mailto:info@hotviewlabs.com">info@hotviewlabs.com</a></p>
+            </div>
+            <div class="info-item">
+                <h3>Phone</h3>
+                <p><a href="tel:+1234567890">+1 234 567 890</a></p>
+            </div>
+            <div class="info-item">
+                <h3>Address</h3>
+                <p>123 Innovation Drive, Tech City, Global HQ</p>
+            </div>
+            <div class="info-item">
+                <h3>Social Media</h3>
+                <p>
+                    <a href="#" target="_blank">LinkedIn</a> |
+                    <a href="#" target="_blank">Twitter</a> |
+                    <a href="#" target="_blank">Facebook</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 HotView Labs. All Rights Reserved.</p>
+    </footer>
+    <script type="module">
+        import { fetchPosts } from '/js/fetchPosts.js';
+
+        // Load posts dynamically
+        fetchPosts();
+
+        // Handle user login status
+        document.addEventListener('DOMContentLoaded', () => {
+            const createPostBtn = document.getElementById('create-post-btn');
+            const authBtn = document.getElementById('auth-btn');
+            const token = localStorage.getItem('accessToken');
+
+            if (token) {
+                createPostBtn.style.display = 'inline-block';
+                authBtn.textContent = 'Logout';
+                authBtn.href = '#';
+                authBtn.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    localStorage.removeItem('accessToken');
+                    alert('Logged out successfully.');
+                    location.href = '/html/account/login.html';
+                });
+            } else {
+                createPostBtn.style.display = 'none';
+                authBtn.textContent = 'Login';
+                authBtn.href = '/html/account/login.html';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HotView Labs - Blog</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>HotView Labs</h1>
+        </div>
+        <nav>
+            <a href="/html/index.html">Home</a>
+            <a href="/html/aboutUs.html">About Us</a>
+            <a href="/html/contact.html">Contact</a>
+            <a href="/html/post/createPost.html" id="create-post-btn" style="display: none;">Create Post</a>
+            <a href="/html/account/login.html" id="auth-btn">Login</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Welcome Section -->
+        <section class="welcome">
+            <h2>Welcome to HotView Labs Blog</h2>
+            <p>Discover the latest tech trends and insights with our articles. Stay ahead in the world of innovation.</p>
+        </section>
+        
+        <!-- Featured Posts Carousel -->
+        <section class="featured-posts">
+            <h2>Featured Posts</h2>
+            <div class="carousel">
+                <button class="carousel-control prev">&larr;</button>
+                <div class="carousel-window">
+                    <div class="posts"></div>
+                </div>
+                <button class="carousel-control next">&rarr;</button>
+            </div>
+        </section>
+        
+        <!-- Recent Posts Grid -->
+        <section class="recent-posts">
+            <h2>Recent Posts</h2>
+            <div class="grid"></div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>Contact Us: info@hotviewblog.com | Phone: 123-456-7890</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script type="module">
+        import { fetchPosts } from '/js/fetchPosts.js';
+        fetchPosts();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const createPostBtn = document.getElementById('create-post-btn');
+            const authBtn = document.getElementById('auth-btn');
+            const token = localStorage.getItem('accessToken');
+
+            if (token) {
+                createPostBtn.style.display = 'inline-block';
+                authBtn.textContent = 'Logout';
+                authBtn.href = '#';
+                authBtn.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    localStorage.removeItem('accessToken');
+                    alert('Logged out successfully.');
+                    location.href = '/html/account/login.html';
+                });
+            } else {
+                createPostBtn.style.display = 'none';
+                authBtn.textContent = 'Login';
+                authBtn.href = '/html/account/login.html';
+            }
+        });
+    </script>
+</body>
+</html>

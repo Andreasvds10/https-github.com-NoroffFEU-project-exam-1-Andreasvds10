@@ -1,0 +1,121 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f0f4f7;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: linear-gradient(90deg, #4b6cb7, #182848);
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.logo h1 {
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    padding: 8px 16px;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Intro */
+.intro {
+    padding: 20px 50px;
+    text-align: center;
+}
+
+/* Latest Posts Carousel */
+.latest-post {
+    padding: 20px 50px;
+    text-align: center;
+}
+
+.post-carousel {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.posts {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.post-item {
+    min-width: 100%;
+    text-align: center;
+}
+
+.post-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Thumbnail Grid */
+.thumbnail-grid {
+    padding: 20px 50px;
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 10px;
+}
+
+.grid-item {
+    position: relative;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.logout-btn {
+    background-color: #fff;
+    color: #4b6cb7;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 20px;
+}
+
+.logout-btn:hover {
+    background-color: #f0f0f0;
+    color: #182848;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}

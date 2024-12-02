@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Blog Post</title>
+    <link rel="stylesheet" href="/css/editPost.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>HotView Labs</h1>
+        </div>
+        <nav>
+            <a href="/html/index.html">Home</a>
+            <a href="/html/aboutUs.html">About Us</a>
+            <a href="/html/contact.html">Contact</a>
+            <a href="/html/account/login.html" id="auth-btn">Login</a>
+        </nav>
+    </header>
+
+    <!-- Welcome Section -->
+    <section class="welcome">
+        <div class="banner">
+            <h2>Edit Post</h2>
+            <p>Modify the details of your blog post below.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section class="post-editor">
+            <h2>Edit Blog Post</h2>
+            <form id="post-form">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" placeholder="Enter the blog title" required>
+                </div>
+                <div class="form-group">
+                    <label for="body">Content</label>
+                    <textarea id="body" name="body" placeholder="Enter the blog content" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="image-url">Image URL</label>
+                    <input type="text" id="image-url" name="image-url" placeholder="Enter the image URL" required>
+                </div>
+                <button type="submit" id="save-post-btn">Save Changes</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 HotView Labs. All Rights Reserved.</p>
+    </footer>
+
+    <script type="module" src="/js/editPost.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create or Edit Blog Post</title>
+    <link rel="stylesheet" href="/css/createPost.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>HotView Labs</h1>
+        </div>
+        <nav>
+            <a href="/html/index.html">Home</a>
+            <a href="/html/aboutUs.html">About Us</a>
+            <a href="/html/contact.html">Contact</a>
+            <a href="/html/post/createPost.html" id="create-post-btn" style="display: none;">Create Post</a>
+            <a href="/html/account/login.html" id="auth-btn">Login</a>
+        </nav>
+    </header>
+
+    <!-- Welcome Section -->
+    <section class="welcome">
+        <div class="banner">
+            <h2>Create or Edit Blog Post</h2>
+            <p>Share your insights with the HotView Labs community.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section class="post-editor">
+            <h2 id="form-title">Create Blog Post</h2>
+            <form id="post-form">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" placeholder="Enter the blog title" required>
+                </div>
+                <div class="form-group">
+                    <label for="author">Author</label>
+                    <input type="text" id="author" name="author" placeholder="Author Name" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="body">Content</label>
+                    <textarea id="body" name="body" placeholder="Enter the blog content" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="image-url">Image URL</label>
+                    <input type="text" id="image-url" name="image-url" placeholder="Enter the image URL" required>
+                </div>
+                <button type="submit" id="save-post-btn">Save Post</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 HotView Labs. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script type="module">
+        // Simulating the fetchPosts function
+        const fetchPosts = () => {
+            console.log('Posts fetched');
+        };
+        fetchPosts();
+
+        // Login/Logout functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const createPostBtn = document.getElementById('create-post-btn');
+            const authBtn = document.getElementById('auth-btn');
+            const token = localStorage.getItem('accessToken');
+
+            if (token) {
+                createPostBtn.style.display = 'inline-block'; // Show "Create Post" button
+                authBtn.textContent = 'Logout'; // Change "Login" to "Logout"
+                authBtn.href = '#'; // Disable default link
+                authBtn.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    localStorage.removeItem('accessToken'); // Remove token
+                    alert('Logged out successfully.');
+                    location.href = '/html/account/login.html'; // Redirect to login page
+                });
+            } else {
+                createPostBtn.style.display = 'none'; // Hide "Create Post" button
+                authBtn.textContent = 'Login'; // Change "Logout" back to "Login"
+                authBtn.href = '/html/account/login.html'; // Set login link
+            }
+        });
+    </script>
+</body>
+</html>

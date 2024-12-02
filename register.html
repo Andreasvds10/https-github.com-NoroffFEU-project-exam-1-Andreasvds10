@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/css/register.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>HotView Labs</h1>
+        </div>
+        <nav>
+            <a href="/html/index.html">Home</a>
+            <a href="/html/aboutUs.html">About Us</a>
+            <a href="/html/contact.html">Contact</a>
+            <a href="/html/account/login.html" id="auth-btn">Login</a>
+        </nav>
+    </header>
+
+    <!-- Welcome Section -->
+    <section class="welcome">
+        <div class="banner">
+            <h2>Register</h2>
+            <p>Create your account and join the HotView Labs community.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section class="register-container">
+            <h2>Create Your Account</h2>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Enter your email address" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+
+                <button class="register-btn" type="submit">Sign Up</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 HotView Labs. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script type="module">
+        import { registerUser } from '/js/auth.js';
+
+        document.getElementById('register-form').addEventListener('submit', async function (event) {
+            event.preventDefault(); // Prevent page reload
+
+            const fullName = document.getElementById('full-name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            if (!fullName || !email || !password) {
+                alert('All fields are required.');
+                return;
+            }
+
+            try {
+                // Call the registerUser function
+                await registerUser({ fullName, email, password });
+            } catch (error) {
+                console.error('Error during form submission:', error);
+                alert('Registration failed. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>
