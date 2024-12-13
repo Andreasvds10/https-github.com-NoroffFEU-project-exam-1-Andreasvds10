@@ -1,67 +1,39 @@
-# FED1 Project Exam 1
-Blog Application Front-End Project
+# Your project title
 
-Project Overview
+![image](https://raw.githubusercontent.com/Andreasvds10/https-github.com-NoroffFEU-project-exam-1-Andreasvds10/refs/heads/main/overviewhotview.png)
 
-This project is a responsive front-end application built for a blogging API. It includes user-facing and admin pages for viewing, editing, and managing blog posts. This project is part of an exam for the FED1 program, and it demonstrates the skills learned throughout the course, including HTML, CSS, JavaScript, and responsive design.
+Blog that uses dynamic data from database
 
-Client: HotView Labs (fictional)
-Mission: Provide accurate and up-to-date insights to tech leaders worldwide.
+## Description
 
-Project Structure
+This project is a responsive front-end application built for a blogging API.
+It includes user-facing and admin pages for viewing, editing, and managing blog posts.
+This project is part of an exam for the FED1 program, and it demonstrates the skills learned throughout the course, including HTML, CSS, JavaScript, and responsive design.
 
-/index.html - Blog Feed Page
-/post/index.html - Blog Post Public Page
-/post/edit.html - Blog Post Edit Page
-/account/login.html - Account Login Page
-/account/register.html - Account Register Page
-Features
+## Getting Started
 
-Interactive carousel to view the latest posts
-Responsive grid layout for blog post thumbnails
-Blog post pages with detailed post content
-Edit and delete functionality for blog owners
-Secure login and register pages with token-based authentication
-API integration for CRUD operations on blog posts
-Learning Outcomes
+### Installing
 
-Planning and structuring a web application project
-Designing a user interface in Figma
-Building responsive layouts with HTML and CSS
-Adding interactivity with JavaScript
-Integrating with an external API
-Testing and deploying a web application
-Restrictions
+1. Clone the repo:
 
-CSS or JS frameworks are not permitted (e.g., no Bootstrap, Vue, React, etc.).
-The project uses only HTML, CSS, and vanilla JavaScript.
+```bash
+git clone https://github.com/Andreasvds10/https-github.com-NoroffFEU-project-exam-1-Andreasvds10.git
+```
 
-Running the Project Locally
-Since this is a static website, you can open index.html directly in a browser to view it. For a more reliable local setup, consider running a simple HTTP server:
+2. Navigate to the project directory:
 
+```bash
+cd https-github.com-NoroffFEU-project-exam-1-Andreasvds10
+```
 
-Key API Endpoints:
-GET /blog/posts/<name> - Retrieve posts list
-GET /blog/posts/<name>/<id> - Retrieve a specific post by ID
-POST /blog/posts/<name> - Create a new post
-PUT /blog/posts/<name>/<id> - Update a post by ID
-DELETE /blog/posts/<name>/<id> - Delete a post by ID
-POST /auth/register - Register a new user
-POST /auth/login - User login
-Dependencies
-This project uses no additional libraries or frameworks. Only vanilla JavaScript, HTML, and CSS are used.
+### Running
 
-Instructions for Developers
-Editing Styles: All styling is contained in /css/main.css. Any new components or elements should follow the established styles or be added here.
-JavaScript Functionality:
-All interactive and API-related functions are located in the /js folder.
-main.js handles UI functionality like form validations, animations, and event listeners.
-api.js includes functions to interact with the API, making GET, POST, PUT, and DELETE requests.
-Testing:
-Manually test each user story to ensure it’s complete.
+To run the app, run the following commands:
 
-Deploy the application to a static hosting platform like GitHub .
-Ensure that all required deliverables, including the GitHub repository, public demo link, Figma assets, and planning board, are accessible and up to date.
-Contributions
+Locate the index.html file inside the html folder.
 
+Open the index.html file with a web browser. (Right click -> open with Google Chrome / Firefox / Safari / Edge, etc)
 
+## Contact
+
+[My LinkedIn page](https://www.linkedin.com/in/andreas-van-der-spa-618216341/)
