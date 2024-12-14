@@ -1,16 +1,15 @@
-# Your project title
+# Blog Using Dynamic Data from a Database
 
 ![image](https://raw.githubusercontent.com/Andreasvds10/https-github.com-NoroffFEU-project-exam-1-Andreasvds10/refs/heads/main/overviewhotview.png)
 
-Blog that uses dynamic data from database
+A responsive front-end application built for a blogging API. This project includes user-facing and admin pages for viewing, editing, and managing blog posts. It is part of an exam for the **FED1 program**, showcasing skills learned throughout the course, including **HTML**, **CSS**, **JavaScript**, and **responsive design**.
 
-## Description
+## Features
 
-This project is a responsive front-end application built for a blogging API.
-It includes user-facing and admin pages for viewing, editing, and managing blog posts.
-This project is part of an exam for the FED1 program, and it demonstrates the skills learned throughout the course, including HTML, CSS, JavaScript, and responsive design.
-
-## Getting Started
+- View dynamic blog content fetched from an API.
+- Admin pages for creating, editing, and deleting blog posts.
+- Fully responsive design for various devices.
+- Built with a focus on clean and maintainable code.
 
 ### Installing
 
@@ -30,7 +29,7 @@ cd https-github.com-NoroffFEU-project-exam-1-Andreasvds10
 
 To run the app, run the following commands:
 
-Locate the index.html file inside the html folder.
+Locate the index.html file in the project folder.
 
 Open the index.html file with a web browser. (Right click -> open with Google Chrome / Firefox / Safari / Edge, etc)
 
